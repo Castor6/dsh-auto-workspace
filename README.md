@@ -1,5 +1,7 @@
 # dsh-auto-workspace
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 Codex-style **project-less chats** for the DeepSeek Harness.
 
 Click "new session" without picking a project and you just start typing. The
