@@ -1,0 +1,55 @@
+{
+  "name": "dsh-auto-workspace",
+  "version": "0.1.0",
+  "description": "Codex-style project-less chats for DSH: a new chat with no workspace gets its own local working directory",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Castor6/dsh-auto-workspace.git"
+  },
+  "homepage": "https://github.com/Castor6/dsh-auto-workspace#readme",
+  "bugs": {
+    "url": "https://github.com/Castor6/dsh-auto-workspace/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "ai-agents",
+    "coding-agent",
+    "workspace",
+    "session-management"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-controller",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4"
+  }
+}

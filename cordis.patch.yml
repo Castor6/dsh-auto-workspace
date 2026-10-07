@@ -1,0 +1,21 @@
+# dsh-auto-workspace bundle patch.
+#
+# One row, no configuration: the Host half defaults its root to
+# `<home>/Documents/DSH` (macOS/Linux `~/Documents/DSH`, Windows
+# `%USERPROFILE%\Documents\DSH`). Override it here if you want a different
+# root, for example:
+#
+#   - insert:
+#       - id: auto-workspace
+#         name: 'dsh-auto-workspace'
+#         config:
+#           root: '/Volumes/Work/DSH'
+#           directoryPrefix: 'chat'
+#
+# The row carries both halves: the Host half is this package's entry module,
+# and the browser half ships through `exports["./client"]` plus the
+# `dsh.client` declaration in package.json.
+
+- insert:
+    - id: auto-workspace
+      name: 'dsh-auto-workspace'
