@@ -1,3 +1,5 @@
+![dsh-auto-workspace — an independent workspace created automatically for every chat](docs/assets/readme-banner.png)
+
 # dsh-auto-workspace
 
 [English](README.md) | [简体中文](README.zh-CN.md)

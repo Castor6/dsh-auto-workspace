@@ -1,0 +1,9 @@
+Use case: ads-marketing
+Asset type: GitHub README promotional banner for the open-source project dsh-auto-workspace, shared by English and Chinese documentation.
+Primary request: Create a polished ultra-wide landscape banner, approximately 3:1 aspect ratio. Communicate effortless project-less chats for DeepSeek Harness: start chatting immediately, each chat automatically gets its own private local working directory, and its files persist on return.
+Style/medium: refined editorial technology illustration, crisp restrained 3D forms mixed with clean graphic typography; premium open-source developer-tool identity.
+Scene/backdrop: deep midnight navy background with subtle blue atmospheric gradients and very faint grid. Left half contains large, highly readable typography and generous negative space. Right half contains three floating minimal chat cards, each connected by a delicate cyan line to its own distinct softly illuminated folder, with small document shapes inside. Separate chat-to-folder pairings convey independence and continuity. No screenshot or fake application UI.
+Text (verbatim): large title "dsh-auto-workspace"; smaller subtitle "Just chat. Auto-create a workspace for every session."; small eyebrow "FOR DEEPSEEK HARNESS". Title must be exact and remain on one line, with modern clear sans-serif typography. The subtitle may wrap to two left-aligned lines.
+Composition/framing: wide 3:1 horizontal composition, all content comfortably inside 8% safe margins, title visually dominant, illustration secondary. Strong readability when displayed at 850px wide in GitHub README.
+Color palette: midnight navy, soft white text, cyan and electric blue accents, subtle lavender details.
+Constraints: no extra text, no logos of third-party companies, no watermark, no exaggerated neon, no stock-photo people, no busy code snippets.

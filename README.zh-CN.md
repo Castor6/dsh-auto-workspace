@@ -1,3 +1,5 @@
+![dsh-auto-workspace — 为每个会话自动创建独立工作区](docs/assets/readme-banner.png)
+
 # dsh-auto-workspace
 
 [English](README.md) | [简体中文](README.zh-CN.md)
@@ -45,9 +47,9 @@ dsh plugin --profile <profile> add github:Castor6/dsh-auto-workspace
 `<profile>` 是你要装上这个插件的那个 profile —— 桌面端是 `desktop`。spec 写成
 `https://github.com/Castor6/dsh-auto-workspace` 也可以。
 
-也可以从 GUI 的插件页面装，或者用 `plugin_manager` 工具（`install_bundle`）。两半都在同一个
-包里：Host 半是入口模块，浏览器半是 `exports["./client"]` 加 `dsh.client` 声明。装完刷新一次
-页面，让客户端 bundle 进入启动图。
+也可以从 GUI 的插件页面装，或者用 `plugin_manager` 工具（`install_bundle`）。Host 端和浏览器端
+这两部分都在同一个包里：Host 端通过入口模块加载，浏览器端通过 `exports["./client"]` 加
+`dsh.client` 声明加载。装完刷新一次页面，让客户端 bundle 进入启动图。
 
 ### 安装本地检出目录
 
@@ -58,8 +60,8 @@ dsh plugin --profile <profile> add github:Castor6/dsh-auto-workspace
 dsh plugin --profile desktop add /absolute/path/to/dsh-auto-workspace
 ```
 
-这样装出来是一条 `link:` 依赖，插件会一直从检出目录加载：浏览器半每次加载页面都会重新读取，
-Host 半的改动下次启动生效。
+这样装出来是一条 `link:` 依赖，插件会一直从检出目录加载：浏览器端每次加载页面都会重新读取，
+Host 端的改动下次启动生效。
 
 ## 配置
 
@@ -78,7 +80,7 @@ Host 半的改动下次启动生效。
 
 ## 实现原理
 
-**Host 半**（`lib/index.js`，只 import Node 内建模块 —— 用 `link:` 方式安装的插件是按真实路径
+**Host 端**（`lib/index.js`，只 import Node 内建模块 —— 用 `link:` 方式安装的插件是按真实路径
 加载的，那里没有 `node_modules`）：
 
 - 包装 `ctx.sessionController.create`。带了 `workspaceId` 或显式 `cwd` 的请求原样放行；两者
@@ -89,7 +91,7 @@ Host 半的改动下次启动生效。
 - 恢复以持久化的 header 为准：`resumeObserved` 读 `header.cwd`，没有就直接拒绝。所以在创建
   时把目录注入进去，才是无项目聊天能够持久化的关键。
 
-**浏览器半**（`lib/client.js`，手写的 lazy-CJS bundle —— 无需构建；`react`、`react-dom` 和
+**浏览器端**（`lib/client.js`，手写的 lazy-CJS bundle —— 无需构建；`react`、`react-dom` 和
 `@deepseek-ai/dsh-client-ui-primitives` 都是 shell 提供的 seed 模块）：
 
 - 以 `priority: -1` 占用 `conversation.hero.workspace`，把原生选择器从这个 `single` 座位上
