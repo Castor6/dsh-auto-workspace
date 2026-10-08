@@ -43,32 +43,17 @@ The package is a DSH **bundle**: `package.json` declares `dsh.bundle.patch`, so
 installing it appends the bundle to the profile's `dsh.profile.bundles` and
 activates its row.
 
-```bash
-dsh plugin --profile <profile> add github:Castor6/dsh-auto-workspace
-```
-
-`<profile>` is the profile whose GUI should get the plugin — the Desktop app's is
-`desktop`. `https://github.com/Castor6/dsh-auto-workspace` works as a spec too.
-
-Or from the GUI's Plugins page, or with the `plugin_manager` tool
-(`install_bundle`). Both halves ship in one package: the Host half is the entry
-module, the browser half is `exports["./client"]` plus the `dsh.client`
-declaration. Reload the page afterwards so the client bundle enters the boot
-graph.
-
-### Installing a local checkout
-
-What you want while developing it. A local spec must be an **absolute** path — a
-relative one is rejected, because it would resolve against the profile rather
-than your shell:
+For the web app, install it with:
 
 ```bash
-dsh plugin --profile desktop add /absolute/path/to/dsh-auto-workspace
+dsh plugin --profile web add github:Castor6/dsh-auto-workspace
 ```
 
-That records a `link:` dependency, so the plugin keeps loading from the checkout:
-the browser half is re-read on every page load, and Host-half edits take effect
-on the next launch.
+The Desktop app does not support installation through the command line. Open
+**Plugins** from the left navigation bar and enter
+`github:Castor6/dsh-auto-workspace` or the repository URL
+`https://github.com/Castor6/dsh-auto-workspace`
+to install it.
 
 ## Configuration
 

@@ -40,28 +40,16 @@ const cwd = workspace?.path ?? request.cwd ?? this.defaultCwd
 这个包是一个 DSH **bundle**：`package.json` 里声明了 `dsh.bundle.patch`，所以安装它会把该
 bundle 追加到 profile 的 `dsh.profile.bundles`，并激活它的加载行。
 
-```bash
-dsh plugin --profile <profile> add github:Castor6/dsh-auto-workspace
-```
-
-`<profile>` 是你要装上这个插件的那个 profile —— 桌面端是 `desktop`。spec 写成
-`https://github.com/Castor6/dsh-auto-workspace` 也可以。
-
-也可以从 GUI 的插件页面装，或者用 `plugin_manager` 工具（`install_bundle`）。Host 端和浏览器端
-这两部分都在同一个包里：Host 端通过入口模块加载，浏览器端通过 `exports["./client"]` 加
-`dsh.client` 声明加载。装完刷新一次页面，让客户端 bundle 进入启动图。
-
-### 安装本地检出目录
-
-开发时用的方式。本地 spec **必须是绝对路径** —— 相对路径会被拒绝，因为它会相对 profile 解析，
-而不是相对你的 shell：
+Web 端使用以下命令安装：
 
 ```bash
-dsh plugin --profile desktop add /absolute/path/to/dsh-auto-workspace
+dsh plugin --profile web add github:Castor6/dsh-auto-workspace
 ```
 
-这样装出来是一条 `link:` 依赖，插件会一直从检出目录加载：浏览器端每次加载页面都会重新读取，
-Host 端的改动下次启动生效。
+桌面端不支持通过命令行安装。请从左侧导航栏进入**插件**，输入
+`github:Castor6/dsh-auto-workspace` 或仓库地址
+`https://github.com/Castor6/dsh-auto-workspace`
+进行安装。
 
 ## 配置
 
